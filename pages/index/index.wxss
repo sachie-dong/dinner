@@ -1,0 +1,139 @@
+/**index.wxss**/
+@import '../common/common.wxss';
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.search {
+  padding: 10rpx 0; 
+  position: relative;
+  width: 100%;
+}
+input, button {
+    border: none;
+}
+.bar input {
+    height: 85rpx;
+    width: 615rpx;
+    padding-left: 20rpx;
+    border: 2rpx solid #c5464a;
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+}
+.bar button {
+    height: 90rpx;
+    cursor: pointer;
+    position: absolute;
+    background: #c5464a;
+    border-radius: 0 5px 5px 0;
+    width: 120rpx;
+    top: 10rpx;
+    right: 0;
+    font-size: 30rpx;
+    color: #F9F0DA;
+
+}
+.up{
+  height: 250rpx;
+  width: 100%;
+  border: 2rpx solid #F9F0DA;
+  text-align: center;
+}
+
+.img>image{
+  width: 33%;
+  height: 200rpx;
+
+}
+.tab{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.nav{
+  width:100%;
+  height:100rpx;
+  display:flex;
+  flex-direction:row;
+}
+
+.default{
+  line-height:100rpx;
+  text-align:center;
+  flex:1;
+  border-right:1px solid gainsboro;
+  color:#000;
+  font-weight:bold;
+  font-size:28rpx;
+}
+.red{
+  line-height:100rpx;
+  text-align:center;
+  color:#fc5558;
+  flex:1;
+  border-right:1px solid gainsboro;
+  font-weight:bold;
+  font-size:28rpx;
+}
+.show{
+  display:block;
+  width: 100%;
+  text-align:center;
+  line-height:200rpx;
+}
+
+.show>image{
+  width: 200rpx;
+  height: 160rpx;
+}
+.hidden{
+  display:none;
+  text-align:center;
+  line-height:200px;
+}
+
+.newest-box{
+    padding:0 40rpx;
+}
+.newest-box .newest-list{
+    display: inline-block;
+    width: 325rpx;
+    height: 325rpx;
+    margin:0 20rpx 20rpx 0;
+    border-radius: 10px;
+    text-align: center;
+    background: #f5f6f5;
+}
+.newest-box .newest-list:nth-child(2n){
+    margin-right: 0;
+}
+.newest-box .newest-list image{
+    width: 175rpx;
+    height: 175rpx;
+    margin: 20rpx 0 10rpx;
+}
+.newest-box .newest-list .newest-text{
+    font-size: 32rpx;
+}
+
+/*
+.tabbar {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}
+
+.tabbar view {
+  width: 400rpx;
+  height: 100rpx;
+  background: #ddd;
+  flex: 1;
+  font-size: 32rpx;
+  font-weight: 100;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+} */
