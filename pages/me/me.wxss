@@ -1,45 +1,124 @@
-/* pages/me/me.wxss */
-.me{
-  background: #F7F7F7;
+
+.table {
+  width: 100%;
+  margin-top: 1rpx;
+  margin-right: 1rpx;
+  margin-left: 1rpx;
+  background-color: #f7f7f7
+}
+.tr-1{
+  display: flex;
+  width: 100%;
+  height: 173rpx;
+  flex-direction:row;
+  margin-bottom: 2rpx;
+  background-color: white;
+}
+.tr-2{
+  display: flex;
+  width: 100%;
+  height: 128rpx;
+  flex-direction:row;
+  background-color: white;
+  margin-bottom: 20rpx;
+}
+.td-21{
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  width:33%;
   height: 100%;
 }
-
-.userinfo {
-  width: 100%;
-  height: 260rpx;
-  border-bottom: 2rpx dashed #ccc;
+.td-11{
+  justify-content: center;
+  align-items: center;
+  width:20%;
+  height:100%;
+  display: flex;
+}
+.td-12{
+  justify-content: center;
+  align-items: center;
+  width:70%;
+  height:100%;
   display: flex;
   flex-direction: column;
+}
+.td-13{
+  justify-content: center;
   align-items: center;
-  background: #fff;
+  width:10%;
+  height:100%;
+  display: flex;
+}
+.font-1{
+  font-family: Microsoft Yahei;
+  font-size: 20px;
+  color:#000;
+  margin-bottom: 15rpx;
+}
+.font-2{
+  font-family: Microsoft Yahei;
+  font-size: 14px;
+  color:#000;
+  margin-bottom: 10rpx;
+}
+.font-3{
+  font-family: Microsoft Yahei;
+  font-size: 14px;
+  color:#888;
+}
+.font-4{
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+  color:#888;
+}
+.left{
+  width: 100%;
+  text-align: left;
+}
+.center{
+  width: 100%;
+  text-align: center;
+}
+.tr-3{
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  height: 82rpx;
+  widows: 100%;
+  align-items: center;
+  margin-bottom: 2rpx;
+  background-color: white;
+}
+.td-31{
+  width:10%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.td-32{
+  width:80%;
+  justify-content: left;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.td-33{
+  width:10%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.line2{
+  height: 100%;
+  display: flex;
+  border-right: #f7f7f7 solid 2rpx;
+}
+.td-22{
+  padding: 20rpx 0rpx 20rpx 0rpx;
 }
 
-.userinfo>button{
-  margin: auto;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-  font-size: 30rpx;
-}
-
-.list{
-  margin-top: 30rpx;
-  background: #fff;
-  height:320rpx;
-}
-
-.list>view{
-  padding-left:40rpx; 
-  height: 100rpx;
-  line-height: 100rpx;
-  font-size: 40rpx;
-  border-bottom: 4rpx solid #F7F7F7;
-}
