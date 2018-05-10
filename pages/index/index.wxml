@@ -1,20 +1,30 @@
 <!--index.wxml-->
+<import src="/wxSearch/wxSearch.wxml"/>
+
 <view class="container">
-  <view class='search bar'>
-      <input type='text' placeholder='搜索'></input>
-      <navigator url="/pages/category/category">
-        <button type='submit'>搜索</button>
-      </navigator>
+ <view class='search bar'>
+      <input bindfocus="wxSerchFocus" bindinput="wxSearchInput" bindblur="wxSearchBlur"  type='text' placeholder='搜索'></input>
+      <button bindtap="wxSearchFn" type='submit'>搜索</button>
       
   </view>
+  <!-- <view class="wxSearch-section">
+    <view class="wxSearch-pancel">
+      <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="搜索" /> 
+      <button class="wxSearch-button" bindtap="wxSearchFn" size="mini" plain="true">搜索</button> 
+    </view> 
+  </view> -->
+<template is="wxSearch" data="{{wxSearchData}}"/>
   <view class='up'>
-    <text>今日推荐</text>
-    <view class='img'>
-    <image src='../../resources/liang1.jpg'></image>
-    <image src='../../resources/re1.jpg'></image>
-    <image src='../../resources/else.jpg'></image>
-    </view>
+    <text>^^厨师推荐^^</text>
   </view>
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
+      <block wx:key="property" wx:for="{{movies}}" wx:for-index="index">    
+        <swiper-item>    
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>    
+        </swiper-item>    
+      </block>    
+    </swiper>  
+
   <!-- one -->
     <!-- <view class="main">
     <view class="categroy-left">

@@ -1,12 +1,21 @@
 /**index.wxss**/
 @import '../common/common.wxss';
+@import "/wxSearch/wxSearch.wxss";
 .left{
   float: left;
 }
 .right{
   float: right;
 }
-.search {
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+ .search {
   padding: 10rpx 0; 
   position: relative;
   width: 100%;
@@ -14,6 +23,7 @@
 input, button {
     border: none;
 }
+
 .bar input {
     height: 85rpx;
     width: 615rpx;
@@ -35,11 +45,11 @@ input, button {
     font-size: 30rpx;
     color: #F9F0DA;
 
-}
+} 
+
 .up{
-  height: 250rpx;
+  height: 50rpx;
   width: 100%;
-  border: 2rpx solid #F9F0DA;
   text-align: center;
 }
 
