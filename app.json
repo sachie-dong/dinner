@@ -11,10 +11,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#337BFC",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
-    "backgroundColor": "#eee"
+    "navigationBarBackgroundColor": "#008ed4",
+    "navigationBarTitleText": "阳泉移动食堂",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#707070",
