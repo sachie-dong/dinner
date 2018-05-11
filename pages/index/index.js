@@ -6,21 +6,10 @@ const app = getApp()
 Page({
   data: {
     selected: true,
-    selected1: false,
-    movies: [
-      { url: 'http://img06.tooopen.com/images/20171211/tooopen_sy_230155853778.jpg' },
-      { url: 'http://img06.tooopen.com/images/20180307/tooopen_sy_235144453978.jpg' },
-      { url: 'http://img06.tooopen.com/images/20180306/tooopen_sy_235038341977.jpg' },
-      { url: 'http://img06.tooopen.com/images/20180224/tooopen_sy_234130689449.jpg' }
-    ] ,   
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 1000,
-    userInfo: {}  
-
+    selected1: false
   },
   //事件处理函数
+  //tab
   selected: function (e) {
     this.setData({
       selected1: false,
@@ -28,6 +17,22 @@ Page({
       selected: true
     })
   },
+  selected1: function (e) {
+    this.setData({
+      selected: false,
+      selected2: false,
+      selected1: true
+    })
+  },
+  selected2: function (e) {
+    this.setData({
+      selected1: false,
+      selected: false,
+      selected2: true
+    })
+  },
+  //tab结束
+  // 搜索开始
   onLoad: function () {
     console.log('onLoad') ;
     var that = this;
@@ -65,19 +70,7 @@ Page({
   wxSearchTap: function (e) { 
     var that = this 
     WxSearch.wxSearchHiddenPancel(that)
-  },
-  selected1: function (e) {
-    this.setData({
-      selected: false,
-      selected2: false,
-      selected1: true
-    })
-  },
-  selected2: function (e) {
-    this.setData({
-      selected1: false,
-      selected: false,
-      selected2: true
-    })
   }
+  // 搜索结束
+
 })
