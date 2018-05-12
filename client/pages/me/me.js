@@ -1,69 +1,16 @@
 // pages/me/me.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    src: '../../resources/timg.png',
-    pic1: '../../resources/pic1.jpg',
-    pic2: '../../resources/pic2.jpg',
-    pic3: '../../resources/pic3.jpg'
+    src1: '../../resources/timg.png',
+    src2: '../../resources/daoxiang.png',
+    pic1: '../../resources/pic1.png',
+    pic2: '../../resources/pic2.png',
+    pic3: '../../resources/pic3.png',
+    points: 0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  handleLoginTap(){
+    wx.navigateTo({
+      url: '../login/login',
+    })
   }
 })

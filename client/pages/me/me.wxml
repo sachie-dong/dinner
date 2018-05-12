@@ -1,51 +1,44 @@
-<view class="table">
-  <view class='tr-1'>
-    <view class='td-11'>
-      <image style="width: 65px; height: 65px;" mode="scaleToFill" src="{{src}}"></image>
-    </view>
-    <view class='td-12'>
-      <view class='font-1 left'>登录</view>
-      <view class='font-3 left'>登录后可查看个人信息，本地数据云端同步等</view>
-    </view>
-    <view class='td-13 font-3'>></view>
-  </view>
-  <view class='tr-2'>
-    <view class='td-21'>
-      <view class='font-2 center'>会员积分</view>
-      <view class='font-4 center'>0分</view>
-    </view>
-    <view class='td-22'><view class='line2'></view></view>
-    <view class='td-21'>
-      <view class='font-2 center'>积分使用</view>
-      <view class='font-4 center'>点击查看</view>
-    </view>
-    <view class='td-22'><view class='line2'></view></view>
-    <view class='td-21'>
-      <view class='font-2 center'>积分规则</view>
-      <view class='font-4 center'>点击查看</view>
+<view class="me-container">
+  <view class="item1" bindtap='handleLoginTap'>
+    <view class="img-left"><image style="width: 124rpx; height: 124rpx;" mode="scaleToFill" src="{{src1}}"></image></view>
+    <view class="item1-right">
+      <view class="login font-1">登录</view>
+      <view class="info1 font-2">登录后可查看个人信息，本地数据云端同步等</view>
     </view>
   </view>
-
-  <view class='tr-3'>
-    <view class='td-31'>
-      <image style="width:20px; height: 20px;" mode="scaleToFill" src="{{pic1}}"></image>
+  <view class="item2">
+    <view class="member">
+      <view class="font-3">会员积分</view>
+      <view class="font-4">{{points}}分</view>
     </view>
-    <view class='td-32 font-2'>我的预定订单</view>
-    <view class='td-33 font-3'>></view>
-  </view>
-  <view class='tr-3'>
-    <view class='td-31'>
-      <image style="width:20px; height: 20px;" mode="scaleToFill" src="{{pic2}}"></image>
+    <view class="line-container"><view class="line"></view></view>
+    <view class="member"> 
+      <view class="font-3">积分使用</view>
+      <view class="font-4">点击查看</view>
     </view>
-    <view class='td-32 font-2'>我收藏的菜品</view>
-    <view class='td-33 font-3'>></view>
-  </view>
-  <view class='tr-3'>
-    <view class='td-31'>
-      <image style="width:20px; height: 20px;" mode="scaleToFill" src="{{pic3}}"></image>
+    <view class="line-container"><view class="line"></view></view>
+    <view class="member">
+      <view class="font-3">积分规则</view>
+      <view class="font-4">点击查看</view>
     </view>
-    <view class='td-32 font-2'>关于我们</view>
-    <view class='td-33 font-3'>></view>
   </view>
-
+  <view class="item3">
+    <view class="me">
+      <view class="pic"><image style="width:20px; height: 20px;" mode="scaleToFill" src="{{pic1}}"></image></view>
+      <view class="td-32 font-5">我的预定订单</view>
+      <view class="td-33 font-2">></view>
+    </view>
+    <view class="line-container2"><view class="line2"></view></view>
+    <view class="me">
+      <view class="pic"><image style="width:20px; height: 20px;" mode="scaleToFill" src="{{pic2}}"></image></view>
+      <view class="td-32 font-5">我收藏的菜品</view>
+      <view class="td-33 font-2">></view>
+    </view>
+    <view class="line-container2"><view class="line2"></view></view>
+    <view class="me">
+      <view class="pic"><image style="width:20px; height: 20px;" mode="scaleToFill" src="{{pic3}}"></image></view>
+      <view class="td-32 font-5">关于我们</view>
+      <view class="td-33 font-2">></view>
+    </view>
+  </view>
 </view>
