@@ -1,16 +1,25 @@
 // pages/login/login.js
+var phoneNum=null;
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    movies: [
-      { url: 'http://img06.tooopen.com/images/20171211/tooopen_sy_230155853778.jpg' },
-      { url: 'http://img06.tooopen.com/images/20180307/tooopen_sy_235144453978.jpg' },
-      { url: 'http://img06.tooopen.com/images/20180306/tooopen_sy_235038341977.jpg' },
-      { url: 'http://img06.tooopen.com/images/20180224/tooopen_sy_234130689449.jpg' }
-    ],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 1000,
-    userInfo: {}
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  handleBtnvalidate:function(event){
+    var num=event.detail.value
+    if(num!=null){
+      // catchCode.disable=true
+    }
+  },
+  handlePhoneNum:function(event){
+    phoneNum=event.detail.value
+    console.log(phoneNum)
   }
 })

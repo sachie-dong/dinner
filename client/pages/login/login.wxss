@@ -1,9 +1,78 @@
 /* pages/login/login.wxss */
-.swiper {
-  height: 400rpx;
-  width: 100%;
-}
-.swiper image {
+.container{
+  display: flex;
   height: 100%;
-  width: 100%;
+  background: #f7f7f7;
+  flex-direction: column;
 }
+.font-phone{
+  font-family: Microsoft Yahei;
+  font-size: 26px;
+  font-weight: 600;
+}
+.view-phone{
+  display: flex;
+  margin: 50rpx 0rpx 35rpx 45rpx;
+}
+.font-info{
+  font-family: Microsoft Yahei;
+  font-size: 14px;
+  font-weight: 200;
+}
+.view-info{
+  display: flex;
+  margin: 0rpx 0rpx 20rpx 45rpx;
+}
+.item1{
+  display: flex;
+}
+.view-86{
+  display: flex;
+  height: 90rpx;
+  width: 120rpx;
+  background: white;
+  margin: 10rpx 0rpx 10rpx 25rpx;
+  align-items: center;
+  justify-content: center;
+}
+.input-phone{
+  display: flex;
+  height: 90rpx;
+  width: 590rpx;
+  background: white;
+  align-items: center;
+  margin: 10rpx 0rpx 10rpx 0rpx;
+}
+.input-validate{
+  display: flex;
+  height: 90rpx;
+  width: 320rpx;
+  background: white;
+  align-items: center;
+  margin: 10rpx 0rpx 10rpx 0rpx;
+}
+.btn{
+  display: flex;
+  height: 90rpx;
+  width: 245rpx;
+  background: #ee5b47;
+  align-items: center;
+  margin: 10rpx 0rpx 0rpx 25rpx;
+  justify-content: center;
+}
+.btn-ok{
+  display: flex;
+  height: 90rpx;
+  width: 700rpx;
+  background: #008ed4;
+  justify-content: center;
+  align-items: center;
+  margin: 75rpx 0rpx 0rpx 25rpx;
+}
+.view-info1{
+  display: flex;
+  margin: 550rpx 0rpx 0rpx 0rpx;
+  width: 100%;
+  justify-content: center;
+}
+
