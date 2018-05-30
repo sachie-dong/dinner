@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://vmubt6l1.qcloud.la';
+var host = 'https://804684468.yq-chinamobile.club';
 
 var config = {
 

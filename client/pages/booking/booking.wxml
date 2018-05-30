@@ -1,0 +1,79 @@
+<!--pages/booking/booking.wxml-->
+<view class='container'>
+  <view class='img-view'>
+    <image src='{{img}}' mode='aspectFill'></image>
+  </view>
+  <view class='tab'>
+    <view class="nav">
+      <view class="{{currentTab==0 ?'red':'default'}}" data-current="0" bindtap="swichNav">订餐</view>
+      <view class="{{currentTab==1?'red':'default'}}" data-current="1" bindtap="swichNav">评价</view>
+    </view>
+    <swiper current="{{currentTab}}" class="swiper-box" bindchange="bindChange">
+      <swiper-item>
+        <view style='display:flex;flex-direction:row;'>
+          <view class='column-nav'>
+            <view class="{{columnTab==0?'blue':'default1'}}" data-current="0" bindtap='swichColumn'>厨师推荐</view>
+            <view class="{{columnTab==1?'blue':'default1'}}" data-current="1" bindtap='swichColumn'>今日特价</view>
+            <view class="{{columnTab==2?'blue':'default1'}}" data-current="2" bindtap='swichColumn'>凉菜</view>
+            <view class="{{columnTab==3?'blue':'default1'}}" data-current="3" bindtap='swichColumn'>热菜</view>
+            <view class="{{columnTab==4?'blue':'default1'}}" data-current="4" bindtap='swichColumn'>主食</view>
+            <view class="{{columnTab==5?'blue':'default1'}}" data-current="5" bindtap='swichColumn'>外卖</view>
+            <view class="{{columnTab==6?'blue':'default1'}}" data-current="6" bindtap='swichColumn'>移动超市</view>
+          </view>
+          <view class='column-menu'>
+            <view class='grid-all' wx:for="{{food}}" wx:key="id">
+              <view class='grid-1'>
+                <image src='{{item.img}}' class='img-menu' mode='aspectFit'></image>
+              </view>
+              <view class='grid-2'>
+                <view class='line-1'>{{item.name}}</view>
+                <view class='line-2'>剩余{{item.count}}份</view>
+                <view class='line-3'>￥{{item.price}}</view>
+              </view>
+              <view class='grid-3'>
+                <view class="stepper">
+                  <text class="{{item.minusStatus}}" bindtap="bindMinus" data-id="{{index}}">-</text>
+                  <input type="number" disabled='true' value="{{item.buyCount}}" />
+                  <text class="normal" bindtap="bindPlus" data-id="{{index}}">+</text>
+                </view>
+              </view>
+              <!--屏幕背景变暗的背景  -->
+              <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+              <!--弹出框  -->
+              <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+                <view class='model-view'>
+                  <view class='model-view-grid1'></view>
+                  <view class='model-view-grid2'>已选商品</view>
+                  <view class='model-view-grid3'>清空</view>
+                </view>
+                <view class='item-view' wx:for="{{returnFood}}" wx:key='id'>
+                  <view class='item-view-grid1'>{{item.name}}</view>
+                  <view class='item-view-grid2'>￥{{item.price}}</view>
+                  <view class='item-view-grid3'>
+                    <view class="stepper">
+                      <text class="{{item.minusStatus}}" bindtap="bindMinus" data-id="{{index}}">-</text>
+                      <input type="number" disabled='true' value="{{item.count}}" />
+                      <text class="normal" bindtap="bindPlus" data-id="{{index}}">+</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='bottom-bar'>
+            <image wx:if="{{bottomBarCart}}" src='{{cart1}}' class='img-cart' mode='aspectFit'></image>
+            <image wx:else src='{{cart}}' class='img-cart' mode='aspectFit'></image>
+            <text class='circle' wx:if="{{sumCountFlag}}">{{sumCount}}</text>
+            <text class='bottom-bar-left' bindtap='showModel' wx:if="{{moneyFlag}}">未选购商品</text>
+            <text class='bottom-bar-left' bindtap='showModel' wx:else>￥{{money}}</text>
+
+            <text class='{{bottomBarRight}}' bindtap='haneldGoPay'>{{goPay}}</text>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view>我是呵呵</view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

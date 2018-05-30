@@ -1,0 +1,136 @@
+/* pages/subscribe/subscribe.wxss */
+@import "../../lib/weui.wxss";
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f7f7f7;
+  font-size: 28rpx;
+}
+.bar{
+  display: flex;
+  flex-direction: column;
+  height:285rpx;
+  background: white;
+  margin-bottom: 30rpx;
+}
+.bar-view{
+  display: flex;
+  flex-direction: row;
+  border-top: 2rpx solid #f7f7f7;
+  padding-left: 32rpx;
+  height: 33%;
+  width:100%;
+  align-items: center;
+}
+.info-text{
+  display: flex;
+  align-items:center;
+  width:250rpx;
+}
+.info-date{
+  line-height: 95rpx;
+  align-items: center;
+  width:370rpx;
+  text-align:right;
+}
+.arrow{
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  position: absolute;
+  right: 20px;
+  transform: rotate(45deg);
+}
+.bar input{
+  display: flex;
+  font-weight: 200;
+  align-items: center;
+  justify-content: left;
+  height: 100%;
+  width: 500rpx;
+}
+.text-picker{
+  display: flex;
+  height: 36rpx;
+  width:185rpx;
+  margin-right: 80rpx;
+}
+.textares{
+  display: flex;
+  width:700rpx;
+  height: 175rpx;
+  justify-content: center;
+  align-items: center;
+}
+.bar1{
+  display: flex;
+  flex-direction: column;
+  height:285rpx;
+  background: white;
+  margin-bottom: 30rpx;
+}
+.info-view{
+  display: flex;
+  padding-left: 32rpx;
+  height: 33%;
+  width:100%;
+}
+.info-textarea{
+  display: flex;
+  height: 1;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.btn-ok{
+  display: flex;
+  height: 90rpx;
+  width: 700rpx;
+  background: #008ed4;
+  justify-content: center;
+  align-items: center;
+  margin: 75rpx 0rpx 0rpx 25rpx;
+  color:white;
+}
+.stepper {  
+   display: flex;
+    width: 160rpx;  
+    height: 52rpx;  
+    /*给主容器设一个边框*/  
+    border: 1px solid #ccc;  
+    border-radius: 3px;  
+    margin-left: 270rpx;
+    align-items: center;
+    justify-content: center;
+}  
+  
+/*加号和减号*/  
+.stepper text {  
+    width: 38rpx;  
+    line-height: 52rpx;  
+    text-align: center;  
+    float: left;  
+}  
+  
+/*数值*/  
+.stepper input {  
+    width: 80rpx;  
+    height: 52rpx;  
+    float: left;  
+    margin: 0 auto;  
+    text-align: center;  
+    font-size: 12px;  
+    /*给中间的input设置左右边框即可*/  
+    border-left: 1px solid #ccc;  
+    border-right: 1px solid #ccc;  
+}  
+.stepper .normal{  
+    color: black;  
+}  
+  
+/*禁用样式*/  
+.stepper .disabled{  
+    color: #ccc;  
+}  

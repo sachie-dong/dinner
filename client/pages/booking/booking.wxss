@@ -1,0 +1,357 @@
+/* pages/booking/booking.wxss */
+
+.container {
+  flex-direction: column;
+  width: 100%;
+  height: 1200rpx;
+  background: #f7f7f7;
+}
+
+.img-view {
+  height: 283rpx;
+  width: 100%;
+}
+
+.img-view image {
+  width: 100%;
+  height: 283rpx;
+}
+
+/* tab切换 */
+
+.tab {
+  height: 824rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  flex-direction: row;
+  background: white;
+}
+
+.default {
+  line-height: 100rpx;
+  text-align: center;
+  flex: 1;
+  color: #000;
+  font-size: 28rpx;
+}
+
+.red {
+  line-height: 100rpx;
+  text-align: center;
+  flex: 1;
+  color: #008ed4;
+  font-size: 28rpx;
+  border-bottom: 6rpx solid #008ed4;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.column-nav {
+  height: 700rpx;
+  width: 205rpx;
+  border-right: 2rpx solid #e5e5e5;
+  overflow: auto;
+}
+
+.column-menu {
+  height: 700rpx;
+  width: 545rpx;
+  overflow: auto;
+  background: #f3f6f9;
+}
+
+.grid-all {
+  display: flex;
+  flex-direction: row;
+  height: 190rpx;
+  width: 100%;
+  border-bottom: 1rpx solid white;
+}
+
+.grid-1 {
+  width: 195rpx;
+  height: 100%;
+}
+
+.img-menu {
+  height: 140rpx;
+  width: 140rpx;
+  margin: 25rpx 28rpx;
+}
+
+.grid-2 {
+  width: 140rpx;
+  height: 100%;
+}
+
+.grid-3 {
+  width: 210rpx;
+  height: 100%;
+  padding-left: 30rpx;
+  padding-top: 67rpx;
+}
+
+.line-1 {
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 76rpx;
+  align-items: center;
+  font-weight: 400;
+}
+
+.line-2 {
+  width: 100%;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  align-items: center;
+  font-weight: 200;
+}
+
+.line-3 {
+  width: 100%;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  align-items: center;
+  color: #ed7232;
+  font-weight: 800;
+}
+
+.stepper {
+  display: flex;
+  width: 160rpx;
+  height: 52rpx;
+  /*给主容器设一个边框*/
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  /* margin-left: 270rpx; */
+  align-items: center;
+  justify-content: center;
+}
+
+/*加号和减号*/
+
+.stepper text {
+  width: 38rpx;
+  line-height: 52rpx;
+  text-align: center;
+  float: left;
+}
+
+/*数值*/
+
+.stepper input {
+  width: 80rpx;
+  height: 52rpx;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  /*给中间的input设置左右边框即可*/
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.stepper .normal {
+  color: black;
+}
+
+/*禁用样式*/
+
+.stepper .disabled {
+  color: #ccc;
+}
+
+.blue {
+  line-height: 155rpx;
+  text-align: center;
+  flex: 1;
+  color: #000;
+  font-size: 28rpx;
+  border-left: 6rpx solid #008ed4;
+  border-bottom: 2rpx solid #e5e5e5;
+  background: white;
+}
+
+.default1 {
+  line-height: 155rpx;
+  text-align: center;
+  flex: 1;
+  color: #000;
+  font-weight: 200;
+  border-bottom: 2rpx solid #e5e5e5;
+  font-size: 28rpx;
+}
+
+.bottom-bar {
+  display: flex;
+  height: 100rpx;
+  width: 750rpx;
+  position: absolute;
+  align-items: baseline;
+  flex-direction: row;
+  bottom: 0rpx;
+  margin: 0;
+}
+
+.bottom-bar-left {
+  display: flex;
+  line-height: 100rpx;
+  text-align: center;
+  width: 480rpx;
+  height: 100%;
+  background: #474747;
+  font-size: 28rpx;
+  color: #a3a3a3;
+  padding-left: 205rpx;
+  z-index: 3000;
+}
+
+.bottom-bar-right-disabled {
+  display: flex;
+  line-height: 100rpx;
+  text-align: center;
+  width: 270rpx;
+  height: 100%;
+  background: #a0a0a0;
+  font-size: 28rpx;
+  color: white;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.bottom-bar-right-normal {
+  display: flex;
+  line-height: 100rpx;
+  text-align: center;
+  width: 270rpx;
+  height: 100%;
+  background: #008ed4;
+  font-size: 28rpx;
+  color: white;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.img-cart {
+  width: 105rpx;
+  height: 105rpx;
+  position: absolute;
+  bottom: 20rpx;
+  left: 55rpx;
+  z-index: 4000;
+}
+
+/*使屏幕变暗  */
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+/*对话框 */
+
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 100rpx;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+}
+
+.model-view {
+  display: flex;
+  flex-direction: row;
+  height: 62rpx;
+  width: 100%;
+  background: #f3f6f9;
+}
+
+.model-view-grid1 {
+  height: 100%;
+  width: 40rpx;
+  border-right: 10rpx solid #008ed4;
+}
+
+.model-view-grid2 {
+  height: 100%;
+  width: 630rpx;
+  text-align: left;
+  padding: 15rpx 15rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.model-view-grid3 {
+  display: flex;
+  width: 80rpx;
+  font-size: 25rpx;
+  line-height: 100%;
+  align-items: center;
+  color: #999;
+}
+
+.circle {
+  position: absolute;
+  left: 130rpx;
+  bottom: 85rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: #008ed4;
+  border-radius: 50%;
+  z-index: 5000;
+  color: white;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  align-items: center;
+}
+
+.item-view {
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1rpx solid #f9f9f9;
+}
+
+.item-view-grid1 {
+  width:400rpx;
+  height: 100%;
+  padding: 33rpx;
+  text-align:  left;
+}
+
+.item-view-grid2 {
+  width: 100rpx;
+  height: 100%;
+  text-align:  left;
+  padding-top: 33rpx;
+  color:red;
+}
+.item-view-grid3 {
+  width: 210rpx;
+  height: 100%;
+  padding-left: 30rpx;
+  padding-top: 23rpx;
+}

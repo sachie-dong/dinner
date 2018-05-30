@@ -1,0 +1,6 @@
+<!--pages/environment/environment.wxml-->
+<view class='container'>
+  <view class='row-view' wx:for="{{canteen}}" wx:key="id">
+    <image src="{{item.url}}" class='img-view' mode='aspectFit'></image>
+  </view>
+</view>

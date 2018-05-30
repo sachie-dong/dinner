@@ -1,43 +1,31 @@
-// page/component/orders/orders.js
+// pages/ding/ding.js
 Page({
-  data:{
-    address:{},
-    hasAddress: false,
-    total:0,
-    orders:[
-      { id: 1, title: '新鲜芹菜 半斤', image:'/resources/s5.png',num:4,price:0.01},
-      { id: 2, title: '素米 500g', image:'/resources/s6.png',num:1,price:0.03}
-      ]
-  },
 
-  onReady() {
-    this.getTotalPrice();
+  /*页面的初始数据*/
+  data: {
+    selected: true,
+    selected1: false,
+    total: 27.5,
+    orders: [
+      { id: 1, title: '新鲜芹菜 半斤',num: 4, price: 10 },
+      { id: 2, title: '素米 500g', num: 1, price: 5 }
+    ]
   },
-
-  /**
-   * 计算总价
-   */
-  getTotalPrice() {
-    let orders = this.data.orders;
-    let total = 0;
-    for(let i = 0; i < orders.length; i++) {
-      total += orders[i].num * orders[i].price;
-    }
+  //tab
+  selected: function (e) {
     this.setData({
-      total: total
+      selected1: false,
+      selected: true
     })
   },
-
-  toPay() {
-    wx.showModal({
-      title: '提示',
-      content: '本系统只做演示，支付系统已屏蔽',
-      text:'center',
-      complete() {
-        wx.switchTab({
-          url: '/pages/me/me'
-        })
-      }
+  selected1: function (e) {
+    this.setData({
+      selected: false,
+      selected1: true
     })
+  },
+  /* 用户点击右上角分享*/
+  onShareAppMessage: function () {
+  
   }
 })

@@ -1,0 +1,53 @@
+<!--pages/subscribe/subscribe.wxml-->
+<view class='container'>
+  <view class='bar'>
+    <view class='bar-view'>
+      <text class='info-text'>选择日期</text>
+      <picker class='info-date' mode="date" value="{{date}}" start="{{date}}" end="2017-10-10" bindchange="listenerDatePickerSelected">
+        <text>{{date}}</text>
+      </picker>
+      <text class='arrow'></text>
+    </view>
+    <view class='bar-view'>
+      <text class='info-text'>预计到达时间</text>
+      <picker class='info-date' mode="time" value="{{date}}" start="11:00" end="19:00" bindchange="listenerTimePickerSelected">
+        <text>{{time}}</text>
+      </picker>
+      <text class='arrow'></text>
+    </view>
+    <view class='bar-view'>
+      <text class='info-text'>选择桌位类型</text>
+      <picker class='info-date' mode="selector" range="{{array}}" value="{{index}}" bindchange="listenerPickerSelected">
+        <text>{{array[index]}}</text>
+      </picker>
+      <text class='arrow'></text>
+    </view>
+  </view>
+  <view class='bar'>
+    <view class='bar-view'>
+      <text class='info-text'>选择就餐人数</text>
+      <view class="stepper">
+        <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+        <input type="number" bindchange="bindManual" value="{{num}}" />
+        <text class="normal" bindtap="bindPlus">+</text>
+      </view>
+    </view>
+    <view class='bar-view'>
+      <text class='info-text'>联系人</text>
+      <input placeholder='请输入联系人姓名' type='text'></input>
+    </view>
+    <view class='bar-view'>
+      <text class='info-text'>联系电话</text>
+      <input placeholder='请输入联系方式' type='number' maxlength='11'></input>
+    </view>
+  </view>
+  <view class='bar1'>
+    <view>
+      <text class='info-view'>备注</text>
+    </view>
+    <view class='info-textarea'>
+      <textarea placeholder='请输入备注信息' style='width:700rpx;height:200rpx;border:2rpx solid #f7f7f7'></textarea>
+    </view>
+  </view>
+  <button class='btn-ok'>立即预约</button>
+</view>

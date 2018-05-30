@@ -1,16 +1,46 @@
-<view class="main">
-
-    <view class="orders-box">
-        <view wx:for="{{orders}}" wx:key="index" class="orders-list">
-            <image class="orders-thumb" src="{{item.image}}"></image>
-            <view class="orders-pro-name">{{item.title}}</view>
-            <view class="orders-pro-price">￥{{item.price}}</view>
-            <view class="orders-count-num">×{{item.num}}</view>
+<!--pages/ding/ding.wxml-->
+<view class='main'>
+<view class='tab'>
+    <view class="nav">
+      <view class="{{selected?'red':'default'}}" bindtap="selected">点餐</view>
+      <view class="{{selected1?'red':'default'}}" bindtap="selected1">预定</view>
+    </view>
+    <view class="{{selected?'show':'hidden'}}">
+        <!-- 订单详情   -->
+      <view class='main1'>
+        <view class='header'>
+          <text class='header-1'>阳泉移动餐厅</text>
+          <text class='header-2' style=''>订单已完成</text>
         </view>
+        <view class="orders-box">
+          <view wx:for="{{orders}}" wx:key="index" class="orders-list">
+              <text class="orders-pro-name">{{item.title}}</text>
+              <text class="orders-count-num">×{{item.num}}</text>
+          </view>
+          <view class='total'>共三件商品，实付￥{{total}}</view>
+        </view>
+        <navigator url='/pages/login/login'>
+          <view class='footer'>去点评</view>
+        </navigator>
+      </view>
     </view>
+    <view class="{{selected1?'show':'hidden'}}">
+      <view class='main2'>
+        <view class='header'>
+          <text class='header-1'>【预定】订单编号：20111111111111</text>
+          <text class='header-2' style=''>订单已完成</text>
+        </view>
+        <view class='orders-box1'>
+          <view style='font-size:30rpx;font-weight:600;'>阳泉移动餐厅</view>
+          <view>预定到达时间：</view>
+          <view>就餐人数：1</view>
+        </view>
+        <navigator url='/pages/login/login'>
+          <view class='footer'>去点评</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
 
-    <view class="orders-footer">
-        <view class="orders-footer-total">付款合计：￥{{total}}</view>
-        <view class="orders-footer-btn" bindtap="toPay">去付款</view>
-    </view>
 </view>
+

@@ -1,0 +1,105 @@
+/* pages/checkout/checkout.wxss */
+@import "../../lib/weui.wxss";
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f7f7f7;
+  font-size: 28rpx;
+}
+.head{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 285rpx;
+  widows: 100%;
+}
+.image{
+  height: 100rpx;
+  width: 100rpx;
+  margin-top: 40rpx;
+}
+.dinner-text{
+  display: flex;
+  line-height: 100rpx;
+  font-size: 28rpx;
+}
+.mid{
+  display: flex;
+  height: 350rpx;
+  width: 710rpx;
+  background: white;
+  margin: 0 auto;
+  border-radius: 12rpx;
+  flex-direction: column;
+}
+.money-input{
+  display: flex;
+  height: 130rpx;
+  width:400rpx;
+  margin: 20rpx 0rpx 20rpx 20rpx;
+  background: #f7f5f6;
+  border-radius: 12rpx 0rpx 0rpx 12rpx;
+  font-size: 40rpx;
+  padding-left: 60rpx;
+}
+.money-text{
+  display: flex;
+  height: 130rpx;
+  width:210rpx;
+  margin: 20rpx 0rpx 20rpx 0rpx;
+  background: #f7f5f6;
+  border-radius: 0rpx 12rpx 12rpx 0rpx;
+  font-size: 24rpx;
+  align-items: center;
+}
+.point-text{
+  display: flex;
+  height: 20rpx;
+  width: 710rpx;
+  margin-left: 20rpx;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+}
+.body-view{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+}
+.remark-text{
+  padding: 20rpx;
+  font-size: 24rpx;
+  float: right;
+}
+.bottom{
+  display: flex;
+  height: 137rpx;
+  width: 100%;
+  align-items: baseline;
+  position: absolute;
+  bottom: 0rpx;
+  flex-direction: row;
+}
+.pay-text{
+  display: flex;
+  font-size: 42rpx;
+  background: #fff;
+  height: 137rpx;
+  width:495rpx;
+  align-items: center;
+  padding-left: 35rpx;
+  color: #008ed4;
+}
+.btn-ok{
+  display: flex;
+  font-size: 42rpx;
+  background: #008ed4;
+  height: 137rpx;
+  width:255rpx;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}

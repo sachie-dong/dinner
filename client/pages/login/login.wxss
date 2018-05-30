@@ -55,10 +55,11 @@
   display: flex;
   height: 90rpx;
   width: 245rpx;
-  background: #ee5b47;
+  background: #b8b8b8;
   align-items: center;
   margin: 10rpx 0rpx 0rpx 25rpx;
   justify-content: center;
+  color: white;
 }
 .btn-ok{
   display: flex;
@@ -68,11 +69,22 @@
   justify-content: center;
   align-items: center;
   margin: 75rpx 0rpx 0rpx 25rpx;
+  color:white;
 }
 .view-info1{
   display: flex;
   margin: 550rpx 0rpx 0rpx 0rpx;
   width: 100%;
   justify-content: center;
+}
+.btn-validate{
+   display: flex;
+  height: 90rpx;
+  width: 245rpx;
+  background: #008ed4;
+  justify-content: center;
+  align-items: center;
+  margin: 10rpx 0rpx 0rpx 25rpx;
+  color:white;
 }
 

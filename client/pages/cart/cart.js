@@ -13,8 +13,8 @@ Page({
     this.setData({
       hasList: true,
       carts:[
-        { id: 1, title: '新鲜芹菜 半斤', image:'/resources/s5.png',num:4,price:0.01,selected:true},
-        { id: 2, title: '素米 500g', image:'/resources/s6.png',num:1,price:0.03,selected:true}
+        { id: 1, title: '新鲜芹菜 半斤', image:'/resources/jpg/vegetable1.png',num:4,price:10,selected:true},
+        { id: 2, title: '素米 500g', image:'/resources/jpg/vegetable2.png',num:1,price:5,selected:true}
       ]
     });
     this.getTotalPrice();

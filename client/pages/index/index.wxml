@@ -1,215 +1,57 @@
-<!--index.wxml-->
-<import src="/wxSearch/wxSearch.wxml"/>
-
-<view class="container">
- <view class='search bar'>
-      <input bindfocus="wxSerchFocus" bindinput="wxSearchInput" bindblur="wxSearchBlur"  type='text' placeholder='搜索'></input>
-      <button bindtap="wxSearchFn" type='submit'>搜索</button>     
+<view class='container'>
+  <view>
+    <swiper class='swiper' indicator-dots='true' autoplay='true' interval='5000' duration='1000'>
+      <block wx:key='property' wx:for="{{movies}}" wx:for-index="index">
+        <swiper-item>
+          <image src='{{item.url}}' mode='aspectFill'></image>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
-<template is="wxSearch" data="{{wxSearchData}}"/>
-  <view class='up'>
-    <text>———厨师推荐———</text>
-  </view>
-  <view class='img'>
-    <image src='/resources/s4.png'></image>
-    <image src='/resources/liang1.jpg'></image>
-    <image src='/resources/s5.png'></image>
-    <image src='/resources/re1.jpg'></image>
-  </view>
-    <view class='up'>
-    <text>———今日特价———</text>
-  </view>
-  <view class='img2'>
-    <image src='http://img06.tooopen.com/images/20171211/tooopen_sy_230155853778.jpg'></image>
-    <image src='http://img06.tooopen.com/images/20180307/tooopen_sy_235144453978.jpg'></image>
-  </view>
-  <!-- one -->
-  <view class="main">
-    <view class="categroy-left">
-        <view wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}"
-            bindtap="switchTab"
-            class="cate-list {{curIndex === index?'on':''}}">{{item.name}}</view>
+  <view class='bar'>
+    <view bindtap='handleSubscribe'>
+      <image src='{{src1}}' mode='aspectFit'></image>
+      <text>预约</text>
     </view>
-
-    <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
-         <!-- <block wx:for="{{detail}}" wx:for-index wx:key="idx">
-            <view id="{{item.id}}" class="cate-box">
-                <view class="cate-banner">
-                    <image src="{{item.banner}}"></image>
-                </view>
-                <view class="cate-title">
-                    <text>{{item.cate}}</text>
-                </view>
-                <view class="product">
-                    <view class="product-list" wx:for="{{item.detail}}" wx:key="index" wx:for-item="val">
-                        <navigator url="../list/list">
-                            <image src="{{val.thumb}}"></image>
-                            <view class="classname"><text>{{val.name}}</text></view>
-                        </navigator>
-                    </view>
-                </view>
-            </view>
-        </block>  -->
-         <block>
-            <view id="guowei" class="cate-box">
-                <view class="cate-banner">
-                    <image src="/resources/c1.png"></image>
-                </view>
-                <view class="cate-title">
-                    <text>果味</text>
-                </view>
-                <view class="product">
-                    <view class="product-list">
-                        <navigator url="../list/list">
-                            <image src="/resources/c2.png"></image>
-                            <view class="classname"><text>梨花带雨 3个</text></view>
-                        </navigator>
-                    </view>
-                </view>
-            </view>
-        </block>
-        <block>
-            <view id="liang" class="cate-box">
-                <view class="cate-banner">
-                    <image src="/resources/c1.png"></image>
-                </view>
-                <view class="cate-title">
-                    <text>凉菜</text>
-                </view>
-                <view class="product">
-                    <view class="product-list">
-                        <navigator url="../list/list">
-                            <image src="/resources/c2.png"></image>
-                            <view class="classname"><text>梨花带雨 3个</text></view>
-                        </navigator>
-                    </view>
-                </view>
-            </view>
-        </block>
-        <block>
-            <view id="re" class="cate-box">
-                <view class="cate-banner">
-                    <image src="/resources/c1.png"></image>
-                </view>
-                <view class="cate-title">
-                    <text>热菜</text>
-                </view>
-                <view class="product">
-                    <view class="product-list">
-                        <navigator url="../list/list">
-                            <image src="/resources/c2.png"></image>
-                            <view class="classname"><text>梨花带雨 3个</text></view>
-                        </navigator>
-                    </view>
-                </view>
-            </view>
-        </block>
-        <block>
-            <view id="else" class="cate-box">
-                <view class="cate-banner">
-                    <image src="/resources/c1.png"></image>
-                </view>
-                <view class="cate-title">
-                    <text>其他</text>
-                </view>
-                <view class="product">
-                    <view class="product-list">
-                        <navigator url="../list/list">
-                            <image src="/resources/c2.png"></image>
-                            <view class="classname"><text>梨花带雨 3个</text></view>
-                        </navigator>
-                    </view>
-                </view>
-            </view>
-        </block>
-    </scroll-view>
-
+    <view bindtap='handleBooking'>
+      <image src='{{src2}}' mode='aspectFit'></image>
+      <text>点餐</text>
+    </view>
+    <view>
+      <image src='{{src3}}' mode='aspectFit'></image>
+      <text>优惠券</text>
+    </view>
+    <view bindtap='handleCheckout'>
+      <image src='{{src4}}' mode='aspectFit'></image>
+      <text>收银台</text>
+    </view>
+  </view>
+  <view class='info'>
+    <view>
+      <text class='info-black'>商家信息</text>
+    </view>
+    <view>
+      <text>营业时间</text>
+      <text>11:00-14:00   17:00-19:30</text>
+    </view>
+    <view>
+      <text>商家电话</text>
+      <text bindtap='handleCalling' style='width:400rpx'>{{phoneNum}}</text>   
+      <view class='arrow'></view>    
+    </view>
+    <view>
+      <text>商家地址</text>
+      <text bindtap='handleMap' style='width:400rpx'>桃南东路2号移动公司负一层</text>
+      <view class='arrow'></view>
+    </view>
+    <view>
+      <text bindtap='handleEnvironment' style='width:400rpx'>商家环境</text>
+      <text></text>
+      <view class='arrow'></view> 
+    </view>
+  </view>
+  <view class='info-bottom'>
+    <image src='{{wxpay}}' mode='aspectFit'></image>
+    <text>我们支持微信支付</text>
+  </view>
 </view>
-  <!-- two -->
-  <!-- <view class='tab'>
-    <view class="nav bc_white">
-      <view class="{{selected?'red':'default'}}" bindtap="selected">凉菜</view>
-      <view class="{{selected1?'red':'default'}}" bindtap="selected1">热菜</view>
-      <view class="{{selected2?'red':'default'}}" bindtap="selected2">其他</view>
-    </view>
-    <view class="{{selected?'show':'hidden'}}">
-      <view class="newest-box">
-        <view class="newest-list">
-            <navigator url="/pages/details/details">
-                <image src="/resources/s4.png"></image>
-                <view class="newest-text"><text>瓜子 100g</text></view>
-                <view class="newest-text"><text>￥ 0.01</text></view>
-            </navigator>
-        </view>
-        <view class="newest-list">
-            <navigator url="/pages/details/details">
-                <image src="/resources/s6.png"></image>
-                <view class="newest-text"><text>素米 375g</text></view>
-                <view class="newest-text"><text>￥ 0.03</text></view>
-            </navigator>
-        </view>
-      </view>   
-    </view>
-    <view class="{{selected1?'show':'hidden'}}">
-      <view class="newest-box">
-        <view class="newest-list">
-            <navigator url="/pages/details/details">
-                <image src="/resources/s6.png"></image>
-                <view class="newest-text"><text>素米 375g</text></view>
-                <view class="newest-text"><text>￥ 0.03</text></view>
-            </navigator>
-        </view>
-        <view class="newest-list">
-            <navigator url="/pages/details/details">
-                <image src="/resources/s4.png"></image>
-                <view class="newest-text"><text>瓜子 100g</text></view>
-                <view class="newest-text"><text>￥ 0.01</text></view>
-            </navigator>
-        </view>
-        <view class="newest-list">
-            <navigator url="/pages/details/details">
-                <image src="/resources/s4.png"></image>
-                <view class="newest-text"><text>瓜子 100g</text></view>
-                <view class="newest-text"><text>￥ 0.01</text></view>
-            </navigator>
-        </view>
-        <view class="newest-list">
-            <navigator url="/pages/details/details">
-                <image src="/resources/s6.png"></image>
-                <view class="newest-text"><text>素米 375g</text></view>
-                <view class="newest-text"><text>￥ 0.03</text></view>
-            </navigator>
-        </view>
-      </view>
-    </view>
-    <view class="{{selected2?'show':'hidden'}}">
-      <view class="newest-box">
-        <view class="newest-list">
-            <navigator url="/pages/details/details">
-                <image src="/resources/s4.png"></image>
-                <view class="newest-text"><text>瓜子 100g</text></view>
-                <view class="newest-text"><text>￥ 0.01</text></view>
-            </navigator>
-        </view>
-        <view class="newest-list">
-            <navigator url="/pages/details/details">
-                <image src="/resources/s6.png"></image>
-                <view class="newest-text"><text>素米 375g</text></view>
-                <view class="newest-text"><text>￥ 0.03</text></view>
-            </navigator>
-        </view>
-      </view>
-    </view>  
-  </view> -->
-
- <!-- <view class="tabbar">
-    <navigator url='/pages/reserve/reserve'>
-      <view class="publish">订餐</view>
-    </navigator>
-    <navigator url='/pages/search/search'>
-      <view class="search">我的</view>
-    </navigator>
-  </view> -->
-</view> 
-
-

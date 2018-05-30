@@ -1,0 +1,24 @@
+<!--pages/checkout/checkout.wxml-->
+<view class='container'>
+  <view class='head'>
+    <image src='{{chinamobile}}' mode='aspectFit' class='image'></image>
+    <text class='dinner-text'>阳泉移动餐厅</text>
+  </view>
+  <view class='mid'>
+    <view class='row'>
+      <input class='money-input' placeholder='消费金额' type='digit'></input>
+      <text class='money-text'>询问管理员后输入</text>
+    </view>
+    <view>
+      <text class='point-text'>使用积分</text>
+      <view class="body-view">
+        <slider style='width:700rpx;height:30rpx;' bindchange="slider4change" min="0" max="1000" block-size='14' block-color='#008ed4' activeColor='#008ed4' show-value/>
+      </view>
+      <view class='remark-text'>注：1积分可抵0.1元</view>
+    </view>
+  </view>
+  <view class='bottom'>
+    <text class='pay-text'>{{money}}</text>
+    <text class='btn-ok'>立即付款</text>
+  </view>
+</view>
