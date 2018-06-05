@@ -1,0 +1,75 @@
+/* pages/judge/judge.wxss */
+.main_wrap{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+}
+.main{
+  margin: 0 20rpx;
+  width: 100%;
+  height: 90%;
+  background: #fff; 
+  padding:0 30rpx;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-bottom: 1rpx solid #ccc;
+  padding: 30rpx 0;
+}
+.star_wrap{
+  padding: 30rpx 120rpx;
+  height: 60rpx;
+}
+.star{
+  float: left;
+  width: 80rpx;
+  height: 60rpx;
+}
+.star>image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.nav>textarea{
+  width: 100%;
+  height:200rpx;
+  border: 1rpx solid #ccc; 
+  padding: 10rpx;
+  margin-bottom: 50rpx;
+}
+.judge{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 20rpx 0;
+}
+.judge image{
+  width: 30rpx;
+  height: 30rpx;
+  padding-left: 30rpx;
+}
+.sub{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 8%;
+  background: #cccccc;
+  border: 0;
+  color: #fff;
+  margin: 0
+}
+.judge-1{
+  display: flex;
+  flex-direction: row;
+}
+.judge-1>view{
+  height: 30rpx;
+  width: 30rpx;
+  margin-left: 10rpx;
+  text-align: center;
+}
+#zan{
+  z-index: 10
+}

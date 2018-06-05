@@ -1,0 +1,40 @@
+<!--pages/judge/judge.wxml-->
+<view class='main_wrap'>
+  <view class='main'>
+    <view class='header'>
+      <view>阳泉移动餐厅</view>
+      <view style='font-size:24rpx;'><checkbox></checkbox>匿名评价</view>
+    </view>
+    <view class='nav'>
+      <view class='star_wrap'>
+        <view bindtap="starTap" data-index="{{index}}"  class="star" wx:for="{{userStars}}" wx:key="index">
+          <!-- <image src="/resources/icon/star-white.png"></image> -->
+          <image src="{{item}}"></image>
+        </view>
+      </view>
+      <textarea placeholder="菜品口味如何？" />      
+    </view>
+    <view data-index="{{index}}"  class="judge" wx:for="{{food}}" wx:key="index">
+      <view>{{item.title}}</view>
+       <!-- <view><radio-group><radio style='padding-right:30rpx;'>赞</radio><radio>踩</radio></radio-group></view>  -->
+       <view class='judge-1'>
+        <!-- <view id='zan' bindtap='zanTap'>
+          <image wx:if="{{collected}}" src="{{zan1}}"></image>
+          <image wx:else src="{{zan}}"></image>
+          <text>赞</text> 
+        </view>
+        <view id='cai' bindtap='zanTap'>
+          <image wx:if="{{collected}}" src="{{cai}}"></image>
+          <image wx:else src="{{cai1}}"></image>
+          <text>踩</text>
+        </view> -->
+        <view bindtap="starTap" data-index="{{index}}"  class="star" wx:for="{{userStars}}" wx:key="index">
+          <!-- <image src="/resources/icon/star-white.png"></image> -->
+          <image src="{{item}}"></image>
+        </view>
+      </view> 
+      
+    </view>
+  </view>
+  <button bindtap="modalcnt" class='sub'>提交</button>
+</view>
