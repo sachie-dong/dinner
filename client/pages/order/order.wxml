@@ -4,7 +4,7 @@
   <!-- 就餐人 -->
     <view class='person' style='flex-direction: row;'>
       <image style="width:60rpx; height: 60rpx;" mode="scaleToFill" src="../../resources/icon/location.png"></image>
-      <view><text style='font-size:36rpx;font-weight:500;'>阳泉移动新大楼</text></view>
+      <view><text style='font-size:36rpx;font-weight:500;'>阳泉移动餐厅</text></view>
       <view style='color:#7b7b7b; line-height:50rpx;'>
         <text>王小二</text>   
         <text style='margin-left:20rpx;'>18888888888</text> 
@@ -29,11 +29,11 @@
   <view class='main2'>
     <view style='padding-left:20rpx; line-height:80rpx;'>阳泉移动餐厅</view>
     <view class="orders-box">
-      <view wx:for="{{orders}}" wx:key="index" class="orders-list">
-          <image class="orders-thumb" src="{{item.image}}"></image>
-          <text class="orders-pro-name">{{item.title}}</text>
+      <view wx:for="{{returnFood.list}}" wx:key="index" class="orders-list">
+          <image class="orders-thumb" src="{{item.img}}"></image>
+          <text class="orders-pro-name">{{item.name}}</text>
           <text class="orders-pro-price">￥{{item.price}}</text>
-          <view class="orders-count-num">×{{item.num}}</view>
+          <view class="orders-count-num">×{{item.count}}</view>
       </view>
     </view>
     <view style='padding-left:20rpx; line-height:80rpx;'>
@@ -42,7 +42,7 @@
     </view>
     <view style='line-height:80rpx;border-top:2rpx dashed #f7f7f7;border-bottom:2rpx dashed #f7f7f7;margin:0 20rpx;'>
       <text>使用积分</text>
-      <text style='float:right;'>10</text>
+      <text style='float:right;'>{{points}}</text>
     </view>
     <view style='line-height:80rpx;float:right;margin:0 20rpx;'>小计：￥{{total}}</view>
   </view>

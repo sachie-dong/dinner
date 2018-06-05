@@ -1,13 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/subscribe/subscribe",
     "pages/orders/orders",
+    "pages/booking/booking",
     "pages/order/order",
     "pages/me/me",
-    "pages/booking/booking",
     "pages/checkout/checkout",
-    "pages/subscribe/subscribe",  
-    
     "pages/cart/cart",
     "pages/login/login",
     "pages/environment/environment"

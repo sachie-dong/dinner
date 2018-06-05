@@ -34,7 +34,6 @@
 }
 /* 订单详情 */
 .main2{
-  height: 610rpx;
   width: 710rpx;
   background-color: #fff;
   font-size: 28rpx;

@@ -1,0 +1,7 @@
+/* pages/test1/test1.wxss */
+.view-d{
+  display: flex;
+  height: 50rpx;
+  width: 400rpx;
+  background: red;
+}

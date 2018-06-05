@@ -19,6 +19,7 @@
             <view class="{{columnTab==4?'blue':'default1'}}" data-current="4" bindtap='swichColumn'>主食</view>
             <view class="{{columnTab==5?'blue':'default1'}}" data-current="5" bindtap='swichColumn'>外卖</view>
             <view class="{{columnTab==6?'blue':'default1'}}" data-current="6" bindtap='swichColumn'>移动超市</view>
+            <view class="{{columnTab==7?'blue':'default1'}}" data-current="7" bindtap='swichColumn'>洗车服务</view>
           </view>
           <view class='column-menu'>
             <view class='grid-all' wx:for="{{food}}" wx:key="id">
@@ -44,16 +45,15 @@
                 <view class='model-view'>
                   <view class='model-view-grid1'></view>
                   <view class='model-view-grid2'>已选商品</view>
-                  <view class='model-view-grid3'>清空</view>
                 </view>
-                <view class='item-view' wx:for="{{returnFood}}" wx:key='id'>
+                <view class='item-view' wx:for="{{returnFood.list}}" wx:key='id'>
                   <view class='item-view-grid1'>{{item.name}}</view>
                   <view class='item-view-grid2'>￥{{item.price}}</view>
                   <view class='item-view-grid3'>
-                    <view class="stepper">
-                      <text class="{{item.minusStatus}}" bindtap="bindMinus" data-id="{{index}}">-</text>
+                     <view class="stepper">
+                       <text class="{{item.minusStatus}}" bindtap="bindMinus" data-id="{{index}}">-</text>
                       <input type="number" disabled='true' value="{{item.count}}" />
-                      <text class="normal" bindtap="bindPlus" data-id="{{index}}">+</text>
+                      <text class="normal" bindtap="bindPlus" data-id="{{index}}">+</text> 
                     </view>
                   </view>
                 </view>
@@ -63,9 +63,9 @@
           <view class='bottom-bar'>
             <image wx:if="{{bottomBarCart}}" src='{{cart1}}' class='img-cart' mode='aspectFit'></image>
             <image wx:else src='{{cart}}' class='img-cart' mode='aspectFit'></image>
-            <text class='circle' wx:if="{{sumCountFlag}}">{{sumCount}}</text>
+            <text class='circle' wx:if="{{sumCountFlag}}">{{returnFood.sumCount}}</text>
             <text class='bottom-bar-left' bindtap='showModel' wx:if="{{moneyFlag}}">未选购商品</text>
-            <text class='bottom-bar-left' bindtap='showModel' wx:else>￥{{money}}</text>
+            <text class='bottom-bar-left' bindtap='showModel' wx:else>￥{{returnFood.total}}</text>
 
             <text class='{{bottomBarRight}}' bindtap='haneldGoPay'>{{goPay}}</text>
           </view>

@@ -28,22 +28,19 @@ Page({
         minusStatus: 'disabled',
       }
     ],
-    returnFood: [],
+    returnFood: {
+      sumCount: 0,
+      total: '0.00',
+      list: [],
+    },
     goPay: '立即支付',
-    moneyFlag: true,
-    money: '0.00',
-    sumCount: 0,
-    sumCountFlag: false,
-    scrollLeft: 0,
-    selected: true,
-    selected1: false,
     currentTab: 0,
     columnTab: 0,
-    num: 0,
-    num1: 0,
     showModalStatus: false,
     bottomBarRight: 'bottom-bar-right-disabled',
     bottomBarCart: false,
+    moneyFlag: true,
+    sumCountFlag: false,
   },
   swichNav: function (e) {
     if (this.data.currentTab === e.target.dataset.current) {
@@ -66,52 +63,132 @@ Page({
       })
     }
   },
-  bindMinus: function (event) {
-    var data = this.data;
+  /* 点击加号 */
+  bindPlus: function (event) {
     var id = event.currentTarget.dataset.id;
-    var num = data.food[id].buyCount;
-    var count = data.sumCount;
-    var minusStatus = data.food[id].minusStatus;
-    var bottomBarRight = 'bottom-bar-right-disabled';
-    var bottomBarCart = false;
-    var money = data.money;
-    var goPay = null;
-    var sumCountFlag = false;
+    console.log(id)
+    var name = this.data.food[id].name;
+    var img = this.data.food[id].img;
+    var price = toDecimal2(this.data.food[id].price);
+    var count = this.data.food[id].count;  //库存数
+    var buyCount = this.data.food[id].buyCount;    //购买数
+    var minusStatus = this.data.food[id].minusStatus;  //最小化按钮
+    var sumCount = this.data.returnFood.sumCount;   //购买总数
+    var total = toDecimal2(this.data.returnFood.total);   //购买总额
+    var list = this.data.returnFood.list;     //购买物品列表 
+    var bottomBarRight = 'bottom-bar-right-disabled';  //立即支付背景样式
+    var bottomBarCart = false;   //购物车样式
+    var goPay = '';   //立即支付样式
+    var itemIsExist = false;
+    var item = { name: '', price: '0.00', count: 0, img: '' }     //购买物品
     var moneyFlag = true;
-    var returnFood = data.returnFood;
-    var itemObj = { name: '', price: 0.00, count: 0 };
-    // 如果大于1时，才可以减  
-    if (num > 0) {
-      num--;
-      data.food[id].count++;
+    var sumCountFlag = this.data.sumCountFlag;
+    var returnFood = this.data.returnFood;
+    var food = this.data.food;
+    // 不作过多考虑自增1  
+    if (count > 0) {
+      buyCount++;
       count--;
-      money = toDecimal2(parseFloat(data.money) - parseFloat(data.food[id].price));
-    }
-    
-    itemObj.name = data.food[id].name;
-    
-    const length = returnFood.length
-    for (let i = 0; i < length; i++) {
-      if (returnFood.length != 0) {
-        console.log(i+returnFood[i].name)
-        console.log(i+itemObj.name)
-        if (returnFood[i].name == itemObj.name) {
-          if (num == 0) {
-            returnFood.splice(i, 1);
-          } else {
-            returnFood[i].price = toDecimal2(num * parseFloat(data.food[id].price));
-            returnFood[i].count = num;
-          }
+      sumCount++;
+      total = toDecimal2(parseFloat(total) + parseFloat(price));
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].name == name) {
+          list[i].price = toDecimal2(buyCount * parseFloat(price));
+          list[i].count = buyCount;
+          itemIsExist = true;
         }
       }
-    }
 
-    if (num <= 0) {
+      if (itemIsExist == false) {
+        item.name = name;
+        item.img = img;
+        item.price = parseFloat(price);
+        item.count = 1;
+        list.push(item);
+      }
+    } else {
+      wx.showToast({
+        title: '库存不足',
+        icon: 'success',
+        duration: 1200,
+      })
+    }
+    // 只有大于一件的时候，才能normal状态，否则disable状态  
+
+    if (buyCount < 1) {
       minusStatus = 'disabled';
     } else {
       minusStatus = 'normal';
     }
-    if (count > 0) {
+
+    if (sumCount > 0) {
+      bottomBarRight = 'bottom-bar-right-normal';
+      bottomBarCart = true;
+      goPay = '去支付';
+      moneyFlag = false;
+      sumCountFlag = true;
+    }
+
+    food[id].buyCount = buyCount;
+    food[id].count = count;
+    food[id].minusStatus = minusStatus;
+    returnFood.total = total;
+    returnFood.sumCount = sumCount;
+    returnFood.list = list;
+    this.setData({
+      food: food,
+      bottomBarCart: bottomBarCart,
+      bottomBarRight: bottomBarRight,
+      goPay: goPay,
+      moneyFlag: moneyFlag,
+      sumCountFlag: sumCountFlag,
+      returnFood: returnFood,
+    });
+  },
+
+  bindMinus: function (event) {
+    var id = event.currentTarget.dataset.id;
+    console.log(id)
+    var name = this.data.food[id].name;
+    var price = toDecimal2(this.data.food[id].price);
+    var count = this.data.food[id].count;  //库存数
+    var buyCount = this.data.food[id].buyCount;    //购买数
+    var minusStatus = this.data.food[id].minusStatus;  //最小化按钮
+    var sumCount = this.data.returnFood.sumCount;   //购买总数
+    var total = toDecimal2(this.data.returnFood.total);   //购买总额
+    var list = this.data.returnFood.list;     //购买物品列表 
+    var bottomBarRight = 'bottom-bar-right-disabled';  //立即支付背景样式
+    var bottomBarCart = false;   //购物车样式
+    var goPay = '';   //立即支付样式
+    var itemIsExist = false;
+    var item = { name: '', price: '0.00', count: 0, img: '' }     //购买物品
+    var moneyFlag = true;
+    var sumCountFlag = this.data.sumCountFlag;
+    var returnFood = this.data.returnFood;
+    var food = this.data.food;
+    // 如果大于1时，才可以减  
+    if (buyCount > 0) {
+      buyCount--;
+      count++;
+      sumCount--;
+      total = toDecimal2(parseFloat(total) - parseFloat(price));
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].name == name) {
+          if (buyCount == 0) {
+            list.splice(i, 1);
+          } else {
+            list[i].price = toDecimal2(buyCount * parseFloat(price));
+            list[i].count = buyCount;
+          }
+        }
+      }
+    }
+    if (buyCount < 1) {
+      minusStatus = 'disabled';
+    } else {
+      minusStatus = 'normal';
+    }
+    if (sumCount > 0) {
       bottomBarRight = 'bottom-bar-right-normal';
       bottomBarCart = true;
       goPay = '去支付';
@@ -124,106 +201,23 @@ Page({
       sumCountFlag = false;
       moneyFlag: true;
     }
-    data.food[id].buyCount = num;
-    data.food[id].minusStatus = minusStatus;
+    food[id].buyCount = buyCount;
+    food[id].count = count;
+    food[id].minusStatus = minusStatus;
+    returnFood.total = total;
+    returnFood.sumCount = sumCount;
+    returnFood.list = list;
     this.setData({
-      food: data.food,
-      minusStatus: minusStatus,
+      food: food,
       bottomBarCart: bottomBarCart,
       bottomBarRight: bottomBarRight,
-      sumCount: count,
       goPay: goPay,
-      money: money,
       moneyFlag: moneyFlag,
       sumCountFlag: sumCountFlag,
       returnFood: returnFood,
     });
   },
-  /* 点击加号 */
-  bindPlus: function (event) {
-    var data = this.data;
-    var id = event.currentTarget.dataset.id;
-    var num = data.food[id].buyCount;    //购买数
-    var minusStatus = data.food[id].minusStatus;
-    var count = data.sumCount;   //购买总数
-    var bottomBarRight = 'bottom-bar-right-disabled';  //立即支付背景样式
-    var bottomBarCart = false;   //购物车样式
-    var goPay = null;   //立即支付样式
-    var sumCountFlag = false;   //数量统计样式
-    var moneyFlag = true;    //未选购商品样式
-    var money = 0.00;        //总额
-    var itemObj = { name: '', price: 0.00, count: 0 };
-    var returnFood = data.returnFood;
-    var exist = false;
 
-    // 不作过多考虑自增1  
-    if (data.food[id].count > 0) {
-      num++;
-      data.food[id].count--;
-      count++;
-      money = parseFloat(data.money) + parseFloat(data.food[id].price);
-
-      itemObj.name = data.food[id].name;
-
-      const length = returnFood.length
-      for (let i = 0; i < length; i++) {
-        if (returnFood.length != 0) {
-          if (returnFood[i].name == data.food[id].name) {
-            returnFood[i].price = toDecimal2(num * parseFloat(data.food[id].price));
-            returnFood[i].count = num;
-            exist = true;
-          }
-        }
-      }
-      if (exist == false) {
-        itemObj.price = parseFloat(data.food[id].price);
-        itemObj.count = 1;
-        returnFood.push(itemObj);
-      }
-    } else {
-      wx.showToast({
-        title: '库存不足',
-        icon: 'success',
-        duration: 1200,
-      })
-    }
-    // 只有大于一件的时候，才能normal状态，否则disable状态  
-
-    if (num < 1) {
-      minusStatus = 'disabled';
-    } else {
-      minusStatus = 'normal';
-    }
-    if (count > 0) {
-      bottomBarRight = 'bottom-bar-right-normal';
-      bottomBarCart = true;
-      goPay = '去支付';
-      moneyFlag = false;
-      sumCountFlag = true;
-    } else {
-      bottomBarRight = 'bottom-bar-right-disabled';
-      bottomBarCart = false;
-      goPay = '立即支付';
-      moneyFlag = true;
-      sumCountFlag = false;
-    }
-    data.food[id].buyCount = num;
-    data.food[id].minusStatus = minusStatus;
-    this.setData({
-      food: data.food,
-      buyCount: num,
-      minusStatus: minusStatus,
-      bottomBarCart: bottomBarCart,
-      bottomBarRight: bottomBarRight,
-      goPay: goPay,
-      money: toDecimal2(money),
-      moneyFlag: moneyFlag,
-      sumCountFlag: sumCountFlag,
-      sumCount: count,
-      returnFood: returnFood,
-    });
-  },
-  /* 输入框事件 */
 
   showModal: function () {
     // 显示遮罩层
@@ -269,10 +263,12 @@ Page({
   showModel: function (e) {
     this.setData({ showModalStatus: true })
   },
-  haneldGoPay:function(e){
-    if (this.data.goPay == '去支付'){
+  haneldGoPay: function (e) {
+    if (this.data.goPay == '去支付') {
+      var returnFood=this.data.returnFood;
+      var returnFoodStr = JSON.stringify(returnFood)
       wx.navigateTo({
-        url: '../order/order',
+        url: '../order/order?returnFood=' + returnFoodStr,
       })
     }
   }

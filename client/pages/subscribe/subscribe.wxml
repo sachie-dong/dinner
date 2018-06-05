@@ -34,11 +34,11 @@
     </view>
     <view class='bar-view'>
       <text class='info-text'>联系人</text>
-      <input placeholder='请输入联系人姓名' type='text'></input>
+      <input placeholder='请输入联系人姓名' type='text' bindblur='handlePersonName'></input>
     </view>
     <view class='bar-view'>
       <text class='info-text'>联系电话</text>
-      <input placeholder='请输入联系方式' type='number' maxlength='11'></input>
+      <input placeholder='请输入联系方式' type='number' maxlength='11' bindblur='handlePhoneNum'></input>
     </view>
   </view>
   <view class='bar1'>
@@ -49,5 +49,5 @@
       <textarea placeholder='请输入备注信息' style='width:700rpx;height:200rpx;border:2rpx solid #f7f7f7'></textarea>
     </view>
   </view>
-  <button class='btn-ok'>立即预约</button>
+  <button class='btn-ok' bindtap='handleSubscribe'>立即预约</button>
 </view>

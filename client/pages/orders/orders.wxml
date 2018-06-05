@@ -27,20 +27,16 @@
     <view class="{{selected1?'show':'hidden'}}">
       <view class='main2'>
         <view class='header'>
-          <text class='header-1'>【预定】订单编号：20111111111111</text>
+          <text class='header-1'>【预定】订单编号：{{result}}</text>
           <text class='header-2' style=''>订单已完成</text>
         </view>
         <view class='orders-box1'>
           <view style='font-size:30rpx;font-weight:600;'>阳泉移动餐厅</view>
-          <view>预定到达时间：</view>
-          <view>就餐人数：1</view>
+          <view>预定到达时间：{{result.date}}   {{result.time}}</view>
+          <view>就餐人数：{{result.num}}</view>
         </view>
-        <navigator url='/pages/login/login'>
-          <view class='footer'>去点评</view>
-        </navigator>
       </view>
     </view>
   </view>
-
 </view>
 

@@ -1,0 +1,2 @@
+<!--pages/test1/test1.wxml-->
+<view class='view-d' bindtap='handleView' id='3'>你好<image src='../../resources/icon/cart2.png' style='width:30rpx heigth:30rpx;' mode='aspectFit'></image></view>

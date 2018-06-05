@@ -12,5 +12,6 @@
 	},
 	"appid": "wx7db80be79ba55e2a",
 	"projectname": "yqchinamobiledinner",
+	"compileType": "miniprogram",
 	"condition": {}
 }
