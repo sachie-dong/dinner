@@ -7,15 +7,15 @@
     </view>
     <view class='nav'>
       <view class='star_wrap'>
-        <view bindtap="starTap" data-index="{{index}}"  class="star" wx:for="{{userStars}}" wx:key="index">
+        <view bindtap="starsTap" data-index="{{index}}"  class="star" wx:for="{{userStars}}" wx:key="index">
           <!-- <image src="/resources/icon/star-white.png"></image> -->
           <image src="{{item}}"></image>
         </view>
       </view>
       <textarea placeholder="菜品口味如何？" />      
     </view>
-    <view data-index="{{index}}"  class="judge" wx:for="{{food}}" wx:key="index">
-      <view>{{item.title}}</view>
+    <view  class="judge" wx:for="{{food}}" wx:for-item="i" wx:key="index"> 
+      <view>{{i.title}}</view>
        <!-- <view><radio-group><radio style='padding-right:30rpx;'>赞</radio><radio>踩</radio></radio-group></view>  -->
        <view class='judge-1'>
         <!-- <view id='zan' bindtap='zanTap'>
@@ -28,8 +28,7 @@
           <image wx:else src="{{cai1}}"></image>
           <text>踩</text>
         </view> -->
-        <view bindtap="starTap" data-index="{{index}}"  class="star" wx:for="{{userStars}}" wx:key="index">
-          <!-- <image src="/resources/icon/star-white.png"></image> -->
+      <view bindtap="starTap" data-id='{{i.id}}' data-index='{{index}}' class="star" wx:for="{{i.userStars}}" wx:key="index">
           <image src="{{item}}"></image>
         </view>
       </view> 

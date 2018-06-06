@@ -11,16 +11,25 @@ Page({
       '/resources/icon/star-white.png',
       '/resources/icon/star-white.png',
       '/resources/icon/star-white.png',
-      '/resources/icon/star-white.png'
+      '/resources/icon/star-white.png',
     ],
     food: [
-      { id: 1, title: '小炒肉' },
-      { id: 1, title: '大炒肉' },
-      { id: 1, title: '苹果' },
-      { id: 1, title: '香蕉' },
-      { id: 1, title: '西红柿'}
+      { id: 0, title: '小炒肉', userStars: [] },
+      { id: 1, title: '大炒肉', userStars: [] },
+      { id: 2, title: '苹果', userStars: [] },
+      { id: 3, title: '香蕉', userStars: [] },
+      { id: 4, title: '西红柿', userStars: [] }
     ],
 
+  },
+  onLoad: function (e) {
+    var food = this.data.food;
+    var len = food.length;
+    for (var i = 0; i < len; i++) {
+      for (var j = 0; j < 5; j++)
+        food[i].userStars[j] = '/resources/icon/star-white.png'
+    }
+    this.setData({ food: food })
   },
   //提交
   modalcnt: function () {
@@ -33,9 +42,30 @@ Page({
         })
       }
     })
-  }  ,
+  },
   // 星星点击事件
   starTap: function (e) {
+    var groupId = e.currentTarget.dataset.id;
+    var index = e.currentTarget.dataset.index; // 获取当前点击的是第几颗星星
+    var lenFood = this.data.food.length;
+    var food = this.data.food;
+
+    for (var j = 0; j < food[groupId].userStars.length; j++) {
+      if (j <= index) { // 小于等于index的是满心
+        food[groupId].userStars[j] = '/resources/icon/star-yellow.png'
+      } else { // 其他是空心
+        console.log('false' + groupId + '-' + j)
+        food[groupId].userStars[j] = '/resources/icon/star-white.png'
+      }
+      console.log(food[0])
+    }
+
+    // 重新赋值就可以显示了
+    this.setData({
+      food: food
+    })
+  }, 
+  starsTap: function (e) {
     var index = e.currentTarget.dataset.index; // 获取当前点击的是第几颗星星
     var tempUserStars = this.data.userStars; // 暂存星星数组
     var len = tempUserStars.length; // 获取星星数组的长度
@@ -52,5 +82,5 @@ Page({
     })
   }
 
-    
+
 })
